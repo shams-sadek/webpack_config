@@ -6,7 +6,9 @@
   "scripts": {
     "dev": "webpack-dev-server",
     "prod": "npm run clean && NODE_ENV=production webpack -p",
-    "clean": "rimraf ./dist/*"
+    "clean": "rimraf ./dist/*",
+    "start": "NODE_PATH=$NODE_PATH:./src node server",
+    "sadik": "npm start & webpack-dev-server --progress --colors"
   },
   "keywords": [],
   "author": "Shams Sadek",
@@ -30,6 +32,7 @@
   },
   "dependencies": {
     "express": "^4.15.2",
+    "nodemon": "^1.11.0",
     "react": "^15.4.2",
     "react-dom": "^15.4.2"
   }

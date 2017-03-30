@@ -23,7 +23,7 @@ var cssConfig = isProd ? cssProd : cssDev;
 
 
 module.exports = {
-    entry: './src/app.js',
+    entry: path.resolve(__dirname, 'src') + '/app.js',
     output: {
         path: path.resolve(__dirname, "dist"), // string
         filename: 'app.bundle.js'
@@ -36,8 +36,9 @@ module.exports = {
             },
             {
                 test: /\.js$/,
-                exclude: /node_modules/,
-                use: 'babel-loader'
+                // exclude: /node_modules/,
+                include: path.resolve(__dirname, "src"),
+                use: 'babel-loader',
             },
             {
                 test: /\.(jpe?g|gif|png|svg)$/i,
@@ -57,11 +58,11 @@ module.exports = {
     plugins: [
         new HtmlWebpackPlugin({
               title: 'My App',
-              minify: {
-                  collapseWhitespace: true
-              },
+            //   minify: {
+            //       collapseWhitespace: true
+            //   },
               hash: true,
-              filename: './../index.html',
+            //   filename: './../index.html',
               template: './src/index.ejs'
         }),
         new ExtractTextPlugin({

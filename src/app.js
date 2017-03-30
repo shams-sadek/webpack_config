@@ -1,5 +1,6 @@
 const css = require('./app.scss');
 
+
 console.log('welcome to webpack and webpack-dev-server');
 
 import React from 'react';
